@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Waste Classification</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+	<body>
+		<!-- Start Interface -->
+		<div class="container zsk">
+			<div class="left">
+				<div onclick="showLJ(1)">Recyclable</div>
+				<div onclick="showLJ(0)">Kitchen Waste</div>
+				<div onclick="showLJ(2)">Hazardous Waste</div>
+				<div onclick="showLJ(3)">Other Waste</div>
+			</div>
+			<div class="right">
+				<div class="title">Waste Introduction</div>
+				<div class="cont"></div>
+				<a href="index.html" class="back">Return</a>
+			</div>
+		</div>
+
+		<script>
+			var lj = [{
+					name: 'Kitchen Waste',
+					desc: 'Kitchen waste is a type of organic waste, divided into cooked and raw kitchen waste. Cooked kitchen waste includes leftovers, leftover rice, and vegetable leaves; raw kitchen waste includes fruit peels, eggshells, tea dregs, bones, and scallops, generally referring to the source materials and remnants used in household food preparation.',
+					img:['./img/cy/26.png','./img/cy/27.png','./img/cy/28.png','./img/cy/29.png','./img/cy/30.png']
+				},
+				{
+					name: 'Recyclable Waste',
+					desc: 'Recyclable materials refer to household waste suitable for recycling and resource utilization. Main categories include waste paper, waste plastics, waste metals, waste packaging, old textiles, waste electrical and electronic products, waste glass, and waste paper-plastic-aluminum composite packaging.',
+					img:['./img/khs/13.png','./img/khs/14.png','./img/khs/15.png','./img/khs/16.png','./img/khs/17.png']
+				},
+				{
+					name: 'Hazardous Waste',
+					desc: 'Hazardous waste refers to household waste that directly or potentially harms human health or the natural environment. Common hazardous wastes include waste fluorescent tubes, waste paint, pesticides, discarded cosmetics, expired medications, waste batteries, waste bulbs, and waste mercury thermometers. Hazardous waste must be safely handled according to specific methods.',
+					img:['./img/yh/13.png','./img/yh/14.png','./img/yh/11.png','./img/yh/6.png','./img/yh/7.png']
+				},
+				{
+					name: 'Other Waste',
+					desc: 'Other waste refers to waste that is less harmful and has no recycling value, such as construction waste and household waste. It is generally disposed of by landfill, incineration, or sanitary decomposition, and some can be biologically decomposed, such as using worms. Other waste is the remaining category after recyclable waste, kitchen waste, and hazardous waste.',
+					img:['./img/bkhs/3.png','./img/bkhs/4.png','./img/bkhs/5.png','./img/bkhs/6.png','./img/bkhs/7.png']
+				}
+			]
+
+			function showLJ(n){
+				let imgs=lj[n].img.map(item=>{
+					return '<img src="'+item+'" />'
+				}).join('')
+				document.getElementsByClassName('title')[0].innerHTML = lj[n].name + ' Introduction'
+				document.getElementsByClassName('cont')[0].innerHTML = lj[n].desc+'<div class="case">'+imgs+'</div>'
+			}
+			showLJ(1)
+		</script>
+	</body>
+</html>

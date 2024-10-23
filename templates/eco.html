@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/eco.css" />
+    <title>Eco-Friendly Eats</title>
+    <style>
+      .nav__logo img {
+          width: 100%;
+          height: auto; /* Maintain aspect ratio */
+          max-width: 150px; /* Adjust max-width as needed */
+      }
+  </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#">
+              <img src="/static/images/plasticpng.png" alt="Eco-Friendly Eats Logo" />
+              <span>Eco-Friendly Eats</span>
+          </a>
+      </div>
+
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Real-Time Dashboard</a></li>
+        <li><a href="/trashsortinggame">Game</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <div class="container__left">
+        <h1>Reduce Plastic, Increase Possibilities.</h1>
+        <div class="container__btn">
+          <button class="btn">Join Us Now!</button>
+        </div>
+      </div>
+      <div class="container__right">
+        <div class="images">
+          <img
+            src="/static/images/tortoise.jpg"
+            alt="tortoise"
+            class="tortoise"
+          />
+          <img
+            src="/static/images/plasticfree.jpg"
+            alt="plasticfree"
+            class="plasticfree"
+          />
+        </div>
+        <div class="content">
+          <h2>Eco-Friendly Eats</h2>
+          <p>
+            Explore sustainable packaging alternatives, support eco-friendly
+            businesses, and discover tips to reduce plastic waste, addressing
+            the environmental impact of conventional plastic packaging like gato
+            piment bags.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="sdg-section">
+      <h2>Sustainable Goals</h2>
+      <div class="sdg-images">
+        <div class="sdg-detail">
+          <img
+            src="/static/images/sgd9.gif"
+            alt="SDG 9: Industry, Innovation & Infrastructure"
+          />
+          <span class="sdg-info"
+            >SDG 9: Industry, Innovation, and Infrastructure - Aims to build
+            resilient infrastructure, promote inclusive and sustainable
+            industrialization, and foster innovation.</span
+          >
+        </div>
+        <div class="sdg-detail">
+          <img
+            src="/static/images/sgd11.gif"
+            alt="SDG 11: Sustainable Cities and Communities"
+          />
+          <span class="sdg-info"
+            >SDG 11: Sustainable Cities and Communities - Aims to make cities
+            and human settlements inclusive, safe, resilient, and
+            sustainable.</span
+          >
+        </div>
+        <div class="sdg-detail">
+          <img src="/static/images/sgd15.gif" alt="SDG 15: Life on Land" />
+          <span class="sdg-info"
+            >SDG 15: Life on Land - Aims to protect, restore, and promote
+            sustainable use of terrestrial ecosystems, manage forests
+            sustainably, combat desertification, and halt and reverse land
+            degradation and halt biodiversity loss.</span
+          >
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="/static/js/eco.js"></script>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beach Pollution Monitoring Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/shorline">Shoreline Savers</a></li>
+          <li><a href="/hangman">Game</a></li>
+        </ul>
+      </nav>
+      <header>
+        <h1>Beach Pollution Monitoring Dashboard</h1>
+      </header>
+      <main>
+        <section class="controls">
+          <div class="control-group">
+            <label for="beachSelect">Select Beach:</label>
+            <select id="beachSelect">
+              <option value="1" data-lat="-20.348404" data-lon="57.552152">
+                Grand Baie
+              </option>
+              <option value="2" data-lat="-20.262216" data-lon="57.367378">
+                Flic en Flac
+              </option>
+              <option value="3" data-lat="-20.163742" data-lon="57.521767">
+                Trou aux Biches
+              </option>
+              <option value="4" data-lat="-20.211470" data-lon="57.498726">
+                Le Morne
+              </option>
+              <option value="5" data-lat="-20.000000" data-lon="57.000000">
+                Belle Mare
+              </option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label for="pollutantSelect">Select Pollutant:</label>
+            <select id="pollutantSelect">
+              <option value="pm10">PM10</option>
+              <option value="pm2_5">PM2.5</option>
+              <option value="no2">NO2</option>
+              <option value="so2">SO2</option>
+              <option value="o3">O3</option>
+            </select>
+          </div>
+          <button id="setAlert" class="btn">Set Alert</button>
+          <button id="shareData" class="btn">Share Data</button>
+        </section>
+        <section class="visualizations">
+          <div id="map" aria-label="Map of selected beach"></div>
+          <canvas
+            id="pollutionChart"
+            aria-label="Pollution levels over time"
+          ></canvas>
+        </section>
+        <section class="details">
+          <div id="beachInfo">
+            <h2>Beach Information</h2>
+            <p id="beachDescription">Select a beach to see the details.</p>
+            <p id="weatherDescription"></p>
+          </div>
+          <div id="aiInsights">
+            <h2>AI Insights</h2>
+            <div id="insightsDescription">
+              Insights about pollution data will appear here.
+            </div>
+          </div>
+        </section>
+        <section class="infographics">
+          <div class="infographic">
+            <h2><i class="fas fa-thermometer-half"></i> Temperature</h2>
+            <div id="temperatureValue" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-tint"></i> Humidity</h2>
+            <div id="humidityValue" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-wind"></i> Wind Speed</h2>
+            <div id="windSpeedValue" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-tachometer-alt"></i> Pressure</h2>
+            <div id="pressureValue" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-eye"></i> Visibility</h2>
+            <div id="visibilityValue" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-smog"></i> Carbon Monoxide</h2>
+            <div id="coValue" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-vial"></i> Ammonia</h2>
+            <div id="nh3Value" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-meteor"></i> Nitrogen Monoxide</h2>
+            <div id="noValue" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-cloud-showers-heavy"></i> Nitrogen Dioxide</h2>
+            <div id="no2Value" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-globe"></i> Ozone</h2>
+            <div id="o3Value" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-cloud-sun"></i> Fine Particulate Matter</h2>
+            <div id="pm2_5Value" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-cloud"></i> Particulate Matter 10</h2>
+            <div id="pm10Value" class="infographic-value"></div>
+          </div>
+          <div class="infographic">
+            <h2><i class="fas fa-bolt"></i> Sulfur Dioxide</h2>
+            <div id="so2Value" class="infographic-value"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="spinner" class="spinner"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+  </body>
+</html>

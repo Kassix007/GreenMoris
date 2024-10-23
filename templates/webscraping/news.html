@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News From Mauritius</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Add some basic styles for better visualization */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        .headline {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .content {
+            font-size: 16px;
+        }
+        .loader {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>News From Mauritius</h1>
+    <ul id="news-list">
+        <!-- Articles will be dynamically loaded here -->
+    </ul>
+    <div class="loader" id="loader">
+        Loading more articles...
+    </div>
+
+    <script>
+        let page = 1;
+
+        function loadArticles() {
+            $.ajax({
+                url: "/load_articles",
+                type: "GET",
+                data: {
+                    page: page
+                },
+                success: function (data) {
+                    if (data.length === 0) {
+                        $("#loader").text("No more articles to load.");
+                        return;
+                    }
+
+                    data.forEach(article => {
+                        let listItem = `<li>
+                            <div class="headline"><a href="${article.link}" target="_blank">${article.headline}</a></div>
+                            <div class="content" data-link="${article.link}">Loading content...</div>
+                        </li>`;
+                        $("#news-list").append(listItem);
+                    });
+
+                    // Load content for each article
+                    $("#news-list .content").each(function () {
+                        let contentDiv = $(this);
+                        let articleLink = contentDiv.data("link");
+
+                        $.ajax({
+                            url: articleLink,
+                            type: "GET",
+                            success: function (response) {
+                                let tempDiv = document.createElement('div');
+                                tempDiv.innerHTML = response;
+                                let firstParagraph = $(tempDiv).find('div.field--type-text-with-summary.field--name-body p').filter(function() {
+                                    return $(this).text().length > 20;
+                                }).first().text();
+                                contentDiv.text(firstParagraph || "No content found with more than 20 characters.");
+                            },
+                            error: function () {
+                                contentDiv.text("Content could not be retrieved.");
+                            }
+                        });
+                    });
+
+                    page++;
+                },
+                error: function () {
+                    $("#loader").text("Failed to load articles.");
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            loadArticles();
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                    loadArticles();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

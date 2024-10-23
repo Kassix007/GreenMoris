@@ -1,0 +1,12 @@
+{
+    "name": "Green Moris",
+    "short_name": "GreenMoris",
+    "description": "Tackle the problems of climate change and ocean pollution.",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "orientation": "portrait"
+
+  }
+  

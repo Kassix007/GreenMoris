@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Moris</title>
+    <link rel="stylesheet" href="static\css\styles.css" />
+    <link rel="manifest" href="static/manifest.json" />
+    <link rel="apple-touch-icon" sizes="57x57" href="static/images//apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="static/images//apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/images//apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="static/images//apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/images//apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="static/images//apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="static/images//apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="static/images//apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images//apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="static/images//android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="static/images//favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images//favicon-16x16.png">
+
+
+    <meta name="theme-color" content="#FFFFFF" />
+  </head>
+  <body>
+    <main class="features-container">
+      <section
+        id="shoreline-savers"
+        aria-labelledby="shoreline-title"
+        class="feature"
+      >
+        <h2 id="shoreline-title">Shoreline Savers</h2>
+        <p>
+          Join us in our mission to clean and protect our shorelines. Volunteer
+          today to make a difference.
+        </p>
+        <a
+          href="/shorline"
+          aria-label="Learn more about Shoreline Savers"
+          class="learn-more-button"
+        >
+          Learn More
+        </a>
+      </section>
+      <section
+        id="eco-friendly-eats"
+        aria-labelledby="eats-title"
+        class="feature"
+      >
+        <h2 id="eats-title">Eco-friendly Eats</h2>
+        <p>
+          Discover delicious and sustainable food options that are kind to our
+          planet.
+        </p>
+        <a
+          href="/eco"
+          aria-label="Learn more about Eco-friendly Eats"
+          class="learn-more-button"
+        >
+          Learn More
+        </a>
+      </section>
+      <section
+        id="green-mobility"
+        aria-labelledby="mobility-title"
+        class="feature"
+      >
+        <h2 id="mobility-title">Green Mobility</h2>
+        <p>
+          Explore eco-friendly transportation alternatives to reduce your carbon
+          footprint.
+        </p>
+        <a
+          href="/greenmobility"
+          aria-label="Learn more about Green Mobility"
+          class="learn-more-button"
+        >
+          Learn More
+        </a>
+      </section>
+      <section id="meet-menmen" class="feature meet-menmen">
+        <div class="image-content">
+          <img
+            src="static/images/menmen.png"
+            alt="Menmen, a passionate coder"
+          />
+        </div>
+        <div class="text-content">
+          <h2>Meet Menmen</h2>
+          <p>
+            Meet Menmen, a passionate coder with a deep love for the ocean. One
+            sunny afternoon, while swimming at Flic en Flac beach, Menmen was
+            heartbroken to see the beautiful shoreline polluted by litter. On
+            his way back, he decided to munch on some gato piment, which was
+            packed in plastic bags causing climate pollution. Menmen also
+            realized that the fuel used to run his car was non-renewable too. He
+            reached back home with a sad smile. Determined to make a difference,
+            Menmen decided to develop a website.
+          </p>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const shorelineSavers = document.getElementById("shoreline-savers");
+        const ecoFriendlyEats = document.getElementById("eco-friendly-eats");
+        const greenMobility = document.getElementById("green-mobility");
+        const body = document.body;
+
+        shorelineSavers.addEventListener("mouseover", function () {
+          body.style.backgroundColor = "rgba(23, 206, 230, 0.97)";
+        });
+
+        shorelineSavers.addEventListener("mouseout", function () {
+          body.style.backgroundColor = "#f4f4f9";
+        });
+
+        ecoFriendlyEats.addEventListener("mouseover", function () {
+          body.style.backgroundColor = "rgba(255, 214, 80, 0.7)";
+        });
+
+        ecoFriendlyEats.addEventListener("mouseout", function () {
+          body.style.backgroundColor = "#f4f4f9";
+        });
+
+        greenMobility.addEventListener("mouseover", function () {
+          body.style.backgroundColor = "rgba(27, 255, 82, 0.97)";
+        });
+
+        greenMobility.addEventListener("mouseout", function () {
+          body.style.backgroundColor = "#f4f4f9";
+        });
+      });
+    </script>
+
+<script>
+  if (!navigator.serviceWorker.controller) {
+      navigator.serviceWorker.register("/sw.js").then(function(reg) {
+          console.log("Service worker has been registered for scope: " + reg.scope);
+      });
+  }
+ </script>
+  </body>
+</html>
